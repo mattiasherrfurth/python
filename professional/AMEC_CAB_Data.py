@@ -2,7 +2,7 @@
 """
 Created on Thu Nov  1 22:01:52 2018
 
-@author: J20032
+@author: Mattias Herrfurth
 """
 
 import pandas as pd
@@ -74,7 +74,7 @@ def Top5Modules(df):
 def SABR10(df):
     amec_desc = ["AMEC Modules"]
     disp = ['MRBE','RWK','SCRP','SRP','UDEF']
-    sabrpn = ['255K250G07','255K250G08']
+    sabrpn = ['partnumber1','partnumber2']
     m = dt.datetime.now().month - 1
     counts = []
     sabr = df[(df['Scheduler Description'].isin(amec_desc)) & (df['Disposition'].isin(disp)) & (df['QN Item Number'] == 1) & (df['Month']==m) & (df['Part Number'].isin(sabrpn))]
@@ -87,7 +87,7 @@ def SABR10(df):
 def jsf10_mfg(df):
     amec_desc = ["AMEC Modules"]
     disp = ['MRBE','RWK','SCRP','SRP','UDEF']
-    jsfpn = ['261K775G03','261K775G04','261K775G02']
+    jsfpn = ['partnumber3','partnumber4','partnumber5']
     m = dt.datetime.now().month - 1
     counts = []
     jsf = df[(df['Scheduler Description'].isin(amec_desc)) & (df['Disposition'].isin(disp)) & (df['QN Item Number'] == 1) & (df['Month']==m) & (df['Part Number'].isin(jsfpn)) & (df['Work Center Category']=='Mfg Labor')]
@@ -99,7 +99,7 @@ def jsf10_mfg(df):
 def jsf10_test(df):
     amec_desc = ["AMEC Modules"]
     disp = ['MRBE','RWK','SCRP','SRP','UDEF']
-    jsfpn = ['261K775G03','261K775G04','261K775G02']
+    jsfpn = ['partnumber3','partnumber4','partnumber5']
     m = dt.datetime.now().month - 1
     counts = []
     jsf = df[(df['Scheduler Description'].isin(amec_desc)) & (df['Disposition'].isin(disp)) & (df['QN Item Number'] == 1) & (df['Month']==m) & (df['Part Number'].isin(jsfpn)) & (df['Work Center Category']=='Test Labor')]
@@ -111,7 +111,7 @@ def jsf10_test(df):
 def jsf10_insp(df):
     amec_desc = ["AMEC Modules"]
     disp = ['MRBE','RWK','SCRP','SRP','UDEF']
-    jsfpn = ['261K775G03','261K775G04','261K775G02']
+    jsfpn = ['partnumber3','partnumber4','partnumber5']
     m = dt.datetime.now().month - 1
     counts = []
     jsf = df[(df['Scheduler Description'].isin(amec_desc)) & (df['Disposition'].isin(disp)) & (df['QN Item Number'] == 1) & (df['Month']==m) & (df['Part Number'].isin(jsfpn)) & (df['Work Center Category']=='Inspection Labor')]
@@ -121,12 +121,6 @@ def jsf10_insp(df):
     return(pd.DataFrame(counts,columns=['Defect Code','QN Count']).sort_values(by=['QN Count'],ascending=False).head(10))
     
 
-
-
-#### PRETTY CLOSE TO ACCURATE...
-#sabr10 = SABR10(df)
-    
-#### NEARLY COMPLETELY ACCURATE
 #jsf10insp = jsf10_insp(df)
 #jsf10test = jsf10_test(df)
 #jsf10mfg = jsf10_mfg(df)

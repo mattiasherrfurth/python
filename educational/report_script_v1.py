@@ -2,7 +2,7 @@
 """
 Created on Wed Jun 26 09:16:04 2019
 
-@author: J20032
+@author: Mattias
 """
 
 # IMPORTS
@@ -82,4 +82,3 @@ while chk == True:
     old_data = old_data_path + '\\' + filename_data
     os.rename(old_data_file, old_data)
     chk = False
-    
