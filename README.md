@@ -17,3 +17,5 @@ A collection of scripts I have written in various professional and educational p
  - sklearn - machine learning tools for encoding, scaling, and modeling
  - datetime - standard datetime package
  - dateutils - used for parser module to generically interpret datetimes
+ - boto3 - SDK for AWS
+ - secrets - secrets manager for AWS
