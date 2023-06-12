@@ -1,0 +1,19 @@
+Go to: dashboard.eventengine.run
+
+Enter hash: 24d0-034f6efb54-f6
+
+Use one-time password
+
+Click AWS Console and Open AWS Console
+
+
+
+
+
+Github repo: https://github.com/GavinatorK/pssummitwkshp.git
+
+Public pretrained model repo:
+	model_data = 's3://ml-materials/sm_image_class/model.tar.gz'
+	# model_data is set to the pretrained model.
+	# uncomment the following line the get the model URI from the training job
+	#model_data = sm_ic_estimator.model_data
