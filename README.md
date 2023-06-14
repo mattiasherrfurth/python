@@ -10,11 +10,14 @@ A collection of scripts I have written in various professional and educational p
 **Packages**:
  - sys - system-specific parameters and functions
  - os - enables interaction with the operating system and file system
+ - json - tools for reading and manipulating JSON files
+ - xml - tools for reading and manipulating XML files
  - pandas - dataframe / series manipulation and analysis
  - numpy - numeric handling and manipulation
  - matplotlib.pyplot - plotting
  - seaborn - pretty plotting
  - sklearn - machine learning tools for encoding, scaling, and modeling
+ - thefuzz - fuzzy matching strings
  - datetime - standard datetime package
  - dateutils - used for parser module to generically interpret datetimes
  - boto3 - SDK for AWS
