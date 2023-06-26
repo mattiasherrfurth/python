@@ -10,8 +10,10 @@ A collection of scripts I have written in various professional and educational p
 **Packages**:
  - sys - system-specific parameters and functions
  - os - enables interaction with the operating system and file system
+ - shutil - functions for copying files and directories
  - json - tools for reading and manipulating JSON files
  - xml - tools for reading and manipulating XML files
+ - requests - functions for HTTP(S) requests
  - pandas - dataframe / series manipulation and analysis
  - numpy - numeric handling and manipulation
  - matplotlib.pyplot - plotting
@@ -21,4 +23,3 @@ A collection of scripts I have written in various professional and educational p
  - datetime - standard datetime package
  - dateutils - used for parser module to generically interpret datetimes
  - boto3 - SDK for AWS
- - secrets - secrets manager for AWS
