@@ -7,7 +7,7 @@ from datetime import datetime
 import matplotlib.dates as dates
 
 ##opening up an array of date and data values
-with open(r'C:\Users\J20032\Documents\Python-Plotting\examples_spc\hrp-ex1-spc.csv',  "r") as doc:
+with open(r'C:\path\to\csv\file.csv',  "r") as doc:
     f=list(csv.reader(doc))
     histdat = f[1:]
     for slot in histdat:

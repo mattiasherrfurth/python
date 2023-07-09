@@ -2,7 +2,7 @@
 """
 Created on Thu Feb 21 23:10:04 2019
 
-@author: J20032
+@author: Mattias
 """
 # immport important imports
 import pandas as pd
@@ -13,10 +13,7 @@ from datetime import timedelta as td
 #from sklearn.feature_extraction.text import CountVectorizer as cv
 
 # create dataframe from pyramid FTTIY raw data
-df = pd.read_excel(r'C:\Users\J20032\Documents\FTTIY_20190221.xlsx')
-
-# picking Result as our target
-#trgt = 'Result'
+df = pd.read_excel(r'C:\path\to\excel\file.xlsx')
 
 def get_20day_avg(df):
     dates = list(df['Date'].unique())[-20:]

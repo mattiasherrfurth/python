@@ -2,7 +2,7 @@
 """
 Created on Mon Jul  8 21:13:11 2019
 
-@author: J20032
+@author: Mattias
 """
 
 # IMPORTS
@@ -15,7 +15,7 @@ import sys
 import shutil
 
 # FILEPATH FOR REPORTS
-datapath = r'T:\A\AMEC\Quality Engineering\AMEC PCAB Meetings\Data Reports\basic reports'
+datapath = r'T:\path\to\folder'
 
 ###############################################################################
 
@@ -23,15 +23,15 @@ datapath = r'T:\A\AMEC\Quality Engineering\AMEC PCAB Meetings\Data Reports\basic
 
 # connecting to the database
 cnxn_fttiy = pyodbc.connect('Driver={SQL Server};'
-                      'Server=EIM-DB-AG40.NORTHGRUM.COM;'
-                      'Database=j20032_yield;'
+                      'Server=server.hostname.domain.com;'
+                      'Database=db_name;'
                       'Trusted_Connection=yes;')
 
 # defining the sql query string
 # NOTE: string is surrounded by three double-quotes ("""<text>"""), must exclude """ from query
 sql_fttiy = """
 SELECT * 
-    FROM [j20032_yield].[dbo].[PyramidYieldData] 
+    FROM [db_name].[dbo].[PyramidYieldData] 
         WHERE [DATE] >= DATEADD(Month, -3, getdate()) 
             AND [OROP_PLNT_ID] = 'P001'
             AND [PCLL_SHORT_NM] = 'AMEC'
@@ -48,7 +48,7 @@ for col in df_fttiy.columns:
     except:
         pass
 
-df_fttiy.to_excel(datapath+'\\j20032_sql_'+now_fttiy+'_3month-yield.xlsx')
+df_fttiy.to_excel(datapath+'\\sql_'+now_fttiy+'_3month-yield.xlsx')
 
 ###############################################################################
 
@@ -56,15 +56,15 @@ df_fttiy.to_excel(datapath+'\\j20032_sql_'+now_fttiy+'_3month-yield.xlsx')
 
 # connecting to the database
 cnxn_qns = pyodbc.connect('Driver={SQL Server};'
-                      'Server=EIM-DB-AG40.NORTHGRUM.COM;'
-                      'Database=j20032_qn-count;'
+                      'Server=server.hostname.domain.com;'
+                      'Database=db2_name;'
                       'Trusted_Connection=yes;')
 
 # defining the sql query string
 # NOTE: string is surrounded by three double-quotes, must exclude these from query
 sql_qns = """
 SELECT * 
-    FROM [j20032_qn-count].[dbo].[QNs_YTD_table] 
+    FROM [db2_name].[dbo].[QNs_YTD_table] 
         WHERE [QNDF_CREATED_DT] >= DATEADD(Month, -3, getdate()) 
             AND [ORDR_PLNT_ID] = 'P001'
             AND [PCLL_CELL_NM] = 'ADVANCED MICROELECTRONICS CENTER'
@@ -80,7 +80,7 @@ for col in df_qns.columns:
     except:
         pass
 
-df_qns.to_excel(datapath+'\\j20032_sql_'+now_qns+'_3month-QNs.xlsx')
+df_qns.to_excel(datapath+'\\sql_'+now_qns+'_3month-QNs.xlsx')
 
 ###############################################################################
 
@@ -88,19 +88,16 @@ df_qns.to_excel(datapath+'\\j20032_sql_'+now_qns+'_3month-QNs.xlsx')
 
 # connecting to the database
 
-######## NOTE: THIS CONNECTION IS TO THE TEST DATABASE
-########       (NEED TO UPDATE TO 'Database=j20032_srr;')
-
 cnxn_srr = pyodbc.connect('Driver={SQL Server};'
-                      'Server=EIM-DB-AG40.NORTHGRUM.COM;'
-                      'Database=j20032_herrfurth_test;'
+                      'Server=server.hostname.domain.com;'
+                      'Database=db3_name;'
                       'Trusted_Connection=yes;')
 
 # defining the sql query string
 # NOTE: string is surrounded by three double-quotes, must exclude these from query
 sql_srr = """
 SELECT * 
-    FROM [j20032_herrfurth_test].[dbo].[SRR_YTD_table_test] 
+    FROM [db3_name].[dbo].[SRR_YTD_table_test] 
         WHERE [MONTH] >= DATEADD(Month, -3, getdate()) 
             AND [PLANT] = 'P001'
             AND [CHARGED_AREA] = 'AMEC'
@@ -116,4 +113,4 @@ for col in df_srr.columns:
     except:
         pass
 
-df_srr.to_excel(datapath+'\\j20032_sql_'+now_srr+'_3month-srr.xlsx')
+df_srr.to_excel(datapath+'\\sql_'+now_srr+'_3month-srr.xlsx')

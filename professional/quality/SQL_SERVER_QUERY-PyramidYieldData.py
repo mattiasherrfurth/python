@@ -2,7 +2,7 @@
 """
 Created on Thu Jun 27 09:29:51 2019
 
-@author: J20032
+@author: Mattias
 """
 
 ## FTTIY CONNECTION ##
@@ -11,12 +11,12 @@ import pandas as pd
 import pyodbc 
 from datetime import datetime as dt
 cnxn = pyodbc.connect('Driver={SQL Server};'
-                      'Server=EIM-DB-AG40.NORTHGRUM.COM;'
-                      'Database=j20032_yield;'
+                      'Server=server.hostname.domain.com;'
+                      'Database=db_name;'
                       'Trusted_Connection=yes;')
 sql = """
 SELECT * 
-    FROM [j20032_yield].[dbo].[PyramidYieldData] 
+    FROM [db_name].[dbo].[PyramidYieldData] 
         WHERE [DATE] >= DATEADD(Month, -3, getdate()) 
             AND [OROP_PLNT_ID] = 'P001'
             AND [PCLL_SHORT_NM] = 'AMEC'
@@ -33,4 +33,4 @@ for col in df.columns:
     except:
         pass
     
-df.to_excel(r'T:\A\AMEC\Quality Engineering\P-charts\SQL_SERVER_QUERY\DATA\j20032_'+now+'_yield.xlsx')
+df.to_excel(r'C:\path\to\excel\file_'+now+'_yield.xlsx')

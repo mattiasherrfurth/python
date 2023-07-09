@@ -2,7 +2,7 @@
 """
 Created on Sat Apr  6 10:46:31 2019
 
-@author: J20032
+@author: Mattias
 """
 
 import pandas as pd
@@ -12,7 +12,7 @@ import datetime as dt
 #from sklearn.preprocessing import 
 
 # reading in dataframe
-datas = pd.read_excel(r'C:\Users\J20032\Documents\AMEC_CAB_RAW_20190408.xlsx')
+datas = pd.read_excel(r'C:\path\to\excel\file.xlsx')
 
 # creating integer index of QN Item Created Date column
 julian = [x.to_julian_date() for x in datas['QN Item Created Date']]
@@ -64,15 +64,6 @@ for i, v in enumerate(top10["Count"].iteritems()):
 pn10 = top10['Part Number']
 
 df10 = datas[datas['Part Number'].isin(pn10)]
-
-#trends = []
-#for j in df10['julian-date'].unique():
-#    date = pd.to_datetime(j)
-#    nums = []
-#    for r in pn10:
-#        nums = 
-#    trends = trends + [[date,df10[(df10['julian-date']==j) & (df10['Part Number'])].shape[0]]]
-
     
     
     

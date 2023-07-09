@@ -1,21 +1,7 @@
-# -*- coding: utf-8 -*-
-"""
-Spyder Editor
-
-This is a temporary script file.
-"""
-
 import seaborn as sns
 import pandas as pd
 import numpy as np
 import os
-
-
-#def shuffle(df, n=1, axis=0):
-#    df = df.copy()
-#    for x in range(n):
-#        df.apply(np.random.shuffle,axis=axis)
-#    return df
 
 def make_fttiy():
     serial = []

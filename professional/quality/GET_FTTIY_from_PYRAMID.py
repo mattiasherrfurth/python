@@ -2,7 +2,7 @@
 """
 Created on Sun Oct 28 20:35:27 2018
 
-@author: matti
+@author: mattias
 """
 
 import pandas as pd
@@ -12,15 +12,7 @@ import matplotlib.pyplot as plt
 import datetime
 import math
 
-
-##### CODE TO RUN DATABASE QUERIES #####
-#import pyodbc
-#myCnxn = pyodbc.connect('Driver={Oracle in OraClient11g_home1};Dbq=ORAD;UiD=YourUsername;Pwd=YourPassword)
-
-#FTTIY spreadsheet: T:\M\Metrics\Pyramid Data\FTTIY.xlsm
-#data sheet name in FTTIY: FTTIY_Final_Output_All_Results
-
-df = pd.read_excel(r'C:\Users\J20032\Documents\FTTIY_20190221.xlsx')
+df = pd.read_excel(r'C:\path\to\excel\file.xlsx')
 #df = pd.read_excel(r'C:\Users\J20032\FTTIY_INPUT.xlsx')
 
 jsf_eval = {'prog':'JSF',"Part Number":['261K775G03 - TWIN TRANSMIT / RECEIVE ASSEMBLY','261K775G04 - TWIN TRANSMIT / RECEIVE ASSEMBLY'],"WCTR_CD":['MYVAHVL'],"Oper":4500,"Result":'ACCEPTED','CL':0.955}
@@ -35,9 +27,6 @@ all_eval = [jsf_eval,sabr_eval,gator_eval,triton_eval]
 all_yields = []
 n = 1
 plt.style.use('seaborn-whitegrid')
-
-##########dfy = df[(df.ZZIL_PART_NO.isin(['261K775G03','261K775G04'])) & (df.ZZIL_OROP_ID == 4500) & (df['ZZIL_ILOR_END_DT'] == pd.Timestamp('2018-11-05 00:00:00'))]
-#dfp = df[(df.Part.isin(['261K775G03','261K775G04'])) & (df.Item_Create_Date == np.datetime64('2018-11-05T00:00:00.000000000'))]
 
 def pchart_get(df,dic):
     date_init = df.Date.min()
