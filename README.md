@@ -1,5 +1,5 @@
 # Python
-A collection of scripts I have written in various professional and educational projects, where proprietary info has been scrubbed from the files.
+A collection of scripts I have written in various professional, educational, and personal projects. I have deployed several scripts to server automation and AWS Lambda. Frankly, Python code in production can get messy and resource intensive pretty quickly, such that Python is better for ad-hoc testing or analysis and microservices. All proprietary info and sensitive data have been scrubbed from the files.
 
 **Purpose**: this repository is a porfolio of my work, satisfying the following objectives:
 
